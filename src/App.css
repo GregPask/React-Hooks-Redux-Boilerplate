@@ -1,0 +1,17 @@
+.complete {
+  text-decoration: line-through;
+}
+
+#todo {
+  border: 1px solid #333;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.delete {
+  /* border: 1px solid #333; */
+  color: rgb(155, 8, 8);
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
