@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
 
-import { toggleTodoAction, deleteTodoAction } from "./App";
+import { toggleTodoAction, deleteTodoAction } from "./Actions/actions";
 
 const TodoList = () => {
   const todos = useSelector((state) => state.todos);

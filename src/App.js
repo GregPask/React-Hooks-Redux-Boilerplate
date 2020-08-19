@@ -7,6 +7,8 @@ import thunk from "redux-thunk";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 
+import { reducer } from "./Reducer/rootReducer";
+
 import "./App.css";
 
 const initialState = {
@@ -27,65 +29,6 @@ const initialState = {
       complete: false,
     },
   ],
-};
-
-// ** REDUCER =================================================
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_TODO":
-      return {
-        ...state,
-        todos: [...state.todos, action.payload],
-      };
-
-    case "TOGGLE_TODO":
-      return {
-        ...state,
-        todos: state.todos.map((todos, index) =>
-          todos.id === action.payload
-            ? { ...todos, complete: !todos.complete }
-            : { ...todos }
-        ),
-      };
-
-    case "DELETE_TODO":
-      return {
-        ...state,
-        todos: state.todos.filter(
-          (todos, index) => todos.id !== action.payload
-        ),
-      };
-
-    default:
-      return state;
-  }
-};
-
-// ** ACTIONS =================================================
-
-export const addTodoAction = (todo) => (dispatch) => {
-  dispatch({
-    type: "ADD_TODO",
-    payload: todo,
-  });
-};
-
-export const toggleTodoAction = (todo) => (dispatch) => {
-  console.log("ACTIONS:", todo);
-
-  dispatch({
-    type: "TOGGLE_TODO",
-    payload: todo,
-  });
-};
-
-export const deleteTodoAction = (todo) => {
-  console.log("DELETE ACTION:", todo);
-
-  return {
-    type: "DELETE_TODO",
-    payload: todo,
-  };
 };
 
 // ** STORE =================================================

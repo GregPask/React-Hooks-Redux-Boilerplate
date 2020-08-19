@@ -1,14 +1,12 @@
-import React, { Component, useState } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
-import { addTodoAction } from "./App";
-import TodoList from "./TodoList";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodoAction } from "./Actions/actions";
 import { v4 as uuidv4 } from "uuid";
 
 const TodoInput = (props) => {
   const [todo, setTodo] = useState("");
-
-  const dispatch1 = useDispatch();
   const todos = useSelector((state) => state.todos);
+  const dispatch1 = useDispatch();
 
   const onChange = (event) => {
     setTodo(event.target.value);
@@ -31,8 +29,7 @@ const TodoInput = (props) => {
       <div className="form-div">
         <input
           type="text"
-          name="todo"
-          placeholder="Add a todo"
+          placeholder="Add an Item"
           value={todo}
           onChange={onChange}
         />
@@ -41,9 +38,5 @@ const TodoInput = (props) => {
     </form>
   );
 };
-
-const mapStateToProps = (state) => ({
-  todos: state.todos,
-});
 
 export default TodoInput;
